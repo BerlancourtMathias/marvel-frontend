@@ -1,0 +1,4 @@
+.characterCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
