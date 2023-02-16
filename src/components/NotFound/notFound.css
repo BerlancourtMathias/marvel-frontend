@@ -1,0 +1,22 @@
+.notFoundContainer {
+  background-image: url("./background/404-background.jpg");
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.notFoundTitle {
+  font-size: 70px;
+  color: aliceblue;
+  font-weight: bold;
+}
+
+.notFoundDescription {
+  color: whitesmoke;
+
+  width: 700px;
+  text-align: center;
+}
