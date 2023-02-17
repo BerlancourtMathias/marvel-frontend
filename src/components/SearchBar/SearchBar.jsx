@@ -24,8 +24,7 @@ const SearchBar = ({ setData, queryElement, setQueryElement }) => {
   }, [search]);
 
   return (
-    <div>
-      SearchBar
+    <div className="searchBarContainer">
       <input
         name="searchText"
         type="textarea"

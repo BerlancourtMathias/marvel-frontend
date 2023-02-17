@@ -1,16 +1,36 @@
 .itemCardContainer {
-  width: 25%;
+  width: 400px;
   display: flex;
+  align-content: center;
   flex-direction: column;
+  align-items: center;
   flex-wrap: wrap;
   padding: 15px;
+  gap: 10px;
 }
+.itemTitle {
+  font-size: large;
+  font-family: "Bebas Neue", cursive;
+  font-size: 24px;
+}
+
 .itemDescription {
-  width: 100%;
-  text-align: justify;
-  border: 2px solid black;
-  background-color: aqua;
+  width: 270px;
+  text-align: start;
+  line-height: 1em;
+  /* border: 2px solid black; */
+
+  font-family: "Gloria Hallelujah", cursive;
+  /* font-family: "Margarine", cursive; */
+  /* font-family: "Mynerve", cursive; */
 }
+
 #itemImage {
   object-fit: cover;
+  border: solid 4px black;
+  font-size: 1rem;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius: 15px 255px;
 }

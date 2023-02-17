@@ -1,10 +1,15 @@
 .headerContainer {
   height: auto;
   width: 100%;
-  border: green solid 3px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* background-image: url("./img/background-Header.jpg"); */
+  /* background-image: url("./img/3530774.jpg"); */
+  background-size: 700px;
+  background-image: url("./img/main-background.jpg");
+  background-size: cover;
+  background-repeat: repeat;
 }
 .headerContainer > img {
   height: 120px;
@@ -13,7 +18,100 @@
 .headerContainer > nav {
   display: flex;
 }
-.headerContainer button {
+.buttonNotPushed-char {
   width: 300px;
-  height: 100%;
+  height: 40px;
+  font-family: "Bebas Neue", cursive;
+  background-color: whitesmoke;
+  /* background: transparent; */
+  font-size: 1rem;
+  border-style: none;
+  border: 2px lightgray solid;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius: 15px 255px;
+}
+
+.buttonPushed-char {
+  box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+  cursor: pointer;
+  border: 4px solid#424242;
+  width: 300px;
+  height: 40px;
+  font-family: "Bebas Neue", cursive;
+  background-color: whitesmoke;
+  /* background: transparent; */
+  font-size: 1rem;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius: 15px 255px;
+}
+
+.buttonNotPushed-com {
+  width: 300px;
+  height: 40px;
+  font-family: "Bebas Neue", cursive;
+  background-color: whitesmoke;
+  /* background: transparent; */
+  font-size: 1rem;
+  border-style: none;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius: 15px 255px;
+}
+
+.buttonPushed-com {
+  box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+  cursor: pointer;
+  border: 4px solid#424242;
+  width: 300px;
+  height: 40px;
+  font-family: "Bebas Neue", cursive;
+  background-color: whitesmoke;
+  /* background: transparent; */
+  font-size: 1rem;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius: 15px 255px;
+}
+
+.buttonNotPushed-fav {
+  width: 300px;
+  height: 40px;
+  font-family: "Bebas Neue", cursive;
+  background-color: whitesmoke;
+  /* background: transparent; */
+  border-style: none;
+  font-size: 1rem;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius: 15px 255px;
+}
+
+.buttonPushed-fav {
+  box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+  cursor: pointer;
+  border: 4px solid#424242;
+  width: 300px;
+  height: 40px;
+  font-family: "Bebas Neue", cursive;
+  background-color: whitesmoke;
+  /* background: transparent; */
+  font-size: 1rem;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius: 15px 255px;
+}
+
+.headerContainer button:hover {
+  box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+  cursor: pointer;
+  border: 3px solid#424242;
+  /* padding: 4px; */
 }

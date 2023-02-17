@@ -1,3 +1,15 @@
+.charactersContainer {
+  display: flex;
+  flex-direction: column;
+}
+.characterCardButton {
+  border-style: none;
+  background-color: whitesmoke;
+}
+.characterCardButton:hover {
+  cursor: pointer;
+}
+
 .characterCardContainer {
   display: flex;
   flex-wrap: wrap;

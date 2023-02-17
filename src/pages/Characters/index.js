@@ -5,7 +5,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URI } from "../../constantVariables";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./characters.css";
 
 //compenents imports
@@ -17,6 +17,7 @@ const Characters = ({ queryElement, setQueryElement }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [messageError, setMessageError] = useState();
+  const navigate = useNavigate();
 
   console.log("API_URI:", API_URI);
   setQueryElement("/characters?name=");
@@ -42,15 +43,26 @@ const Characters = ({ queryElement, setQueryElement }) => {
     return <Navigate to="/error404" />;
   } else
     return (
-      <div className="characterCardContainer">
+      <div className="charactersContainer">
         <SearchBar
           setData={setData}
           setQueryElement={setQueryElement}
           queryElement={queryElement}
         />
-        {data.results.map((item) => {
-          return <ItemCard item={item} key={item._id} />;
-        })}
+        <div className="characterCardContainer">
+          {data.results.map((item) => {
+            return (
+              <button
+                className="characterCardButton"
+                onClick={() =>
+                  navigate(`/character/${item._id}`, data, setData)
+                }
+              >
+                <ItemCard item={item} key={item._id} />
+              </button>
+            );
+          })}
+        </div>
       </div>
     );
 };

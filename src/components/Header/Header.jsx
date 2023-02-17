@@ -2,21 +2,64 @@
 import "./header.css";
 import { Link } from "react-router-dom";
 import logo from "./img/Marvel_Comics_logo.png";
+import { useState } from "react";
 
 const Header = () => {
+  const [isCharPushed, setCharPushed] = useState(false);
+  const [isComPushed, setComPushed] = useState(false);
+  const [isFavPushed, setFavPushed] = useState(false);
   return (
     <div className="headerContainer">
       <img src={logo} alt="Marvel logo" />
 
       <nav>
         <Link to="/">
-          <button>Characters</button>
+          <button
+            onClick={() => {
+              setCharPushed(!isCharPushed);
+              if (isComPushed) {
+                setComPushed(!isComPushed);
+              }
+              if (isFavPushed) setFavPushed(!isFavPushed);
+            }}
+            className={
+              isCharPushed ? "buttonPushed-char" : "buttonNotPushed-char"
+            }
+          >
+            Characters
+          </button>
         </Link>
         <Link to="/comics">
-          <button>Comics</button>
+          <button
+            onClick={() => {
+              setComPushed(!isComPushed);
+              if (isCharPushed) {
+                setCharPushed(!isCharPushed);
+              }
+              if (isFavPushed) {
+                setFavPushed(!isFavPushed);
+              }
+            }}
+            className={isComPushed ? "buttonPushed-com" : "buttonNotPushed-com"}
+          >
+            Comics
+          </button>
         </Link>
         <Link to="/favorites">
-          <button>Favorites</button>
+          <button
+            onClick={() => {
+              setFavPushed(!isFavPushed);
+              if (isCharPushed) {
+                setCharPushed(!isCharPushed);
+              }
+              if (isComPushed) {
+                setComPushed(!isComPushed);
+              }
+            }}
+            className={isFavPushed ? "buttonPushed-fav" : "buttonNotPushed-fav"}
+          >
+            Favorites
+          </button>
         </Link>
       </nav>
     </div>

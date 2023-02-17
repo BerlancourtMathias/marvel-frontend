@@ -37,15 +37,17 @@ const Comics = ({ queryElement, setQueryElement }) => {
   else if (messageError) return <div>{messageError}</div>;
   else
     return (
-      <div className="comicsCardContainer">
+      <div className="comicsContainer">
         <SearchBar
           setData={setData}
           queryElement={queryElement}
           setQueryElement={setQueryElement}
         />
-        {data.results.map((item) => {
-          return <ItemCard item={item} key={item._id} />;
-        })}
+        <div className="comicsCardContainer">
+          {data.results.map((item) => {
+            return <ItemCard item={item} key={item._id} />;
+          })}
+        </div>
       </div>
     );
 };

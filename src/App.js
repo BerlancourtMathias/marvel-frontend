@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //----Pages----
 import Characters from "./pages/Characters/index";
 import Comics from "./pages/Comics/index";
+import Character from "./pages/Character/index";
 //----components----
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -15,28 +16,31 @@ const App = () => {
     <div className="App">
       <Router>
         <Header />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Characters
-                queryElement={queryElement}
-                setQueryElement={setQueryElement}
-              />
-            }
-          />
-          <Route
-            path="/comics"
-            element={
-              <Comics
-                queryElement={queryElement}
-                setQueryElement={setQueryElement}
-              />
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="main">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Characters
+                  queryElement={queryElement}
+                  setQueryElement={setQueryElement}
+                />
+              }
+            />
+            <Route
+              path="/comics"
+              element={
+                <Comics
+                  queryElement={queryElement}
+                  setQueryElement={setQueryElement}
+                />
+              }
+            />
+            <Route path="/character" element={<Character />} />
 
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
         <Footer />
       </Router>
     </div>
