@@ -9,12 +9,13 @@ import ItemCard from "../../components/ItemCard/ItemCard";
 import Spinner from "../../components/Spinner";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
-const Comics = () => {
+const Comics = ({ queryElement, setQueryElement }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [messageError, setMessageError] = useState();
 
   console.log("API_URI:", API_URI);
+  setQueryElement("/comics?title=");
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,7 +38,11 @@ const Comics = () => {
   else
     return (
       <div className="comicsCardContainer">
-        <SearchBar setData={setData} />
+        <SearchBar
+          setData={setData}
+          queryElement={queryElement}
+          setQueryElement={setQueryElement}
+        />
         {data.results.map((item) => {
           return <ItemCard item={item} key={item._id} />;
         })}
