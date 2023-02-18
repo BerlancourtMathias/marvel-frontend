@@ -11,7 +11,6 @@ const SearchBar = ({ setData, queryElement, setQueryElement }) => {
   console.log("query: ", query);
 
   useEffect(() => {
-    setQueryElement("/characters?name=");
     const fetchData = async () => {
       try {
         const response = await axios.get(`${query}`);
