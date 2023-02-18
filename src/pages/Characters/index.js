@@ -5,7 +5,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URI } from "../../constantVariables";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, useLocation } from "react-router-dom";
 import "./characters.css";
 
 //compenents imports
@@ -18,6 +18,7 @@ const Characters = ({ queryElement, setQueryElement }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [messageError, setMessageError] = useState();
   const navigate = useNavigate();
+  const location = useLocation();
 
   console.log("API_URI:", API_URI);
   setQueryElement("/characters?name=");
@@ -55,7 +56,9 @@ const Characters = ({ queryElement, setQueryElement }) => {
               <button
                 className="characterCardButton"
                 onClick={() =>
-                  navigate(`/character/${item._id}`, data, setData)
+                  navigate(`/character/${item._id}`, {
+                    state: { id: item._id },
+                  })
                 }
               >
                 <ItemCard item={item} key={item._id} />

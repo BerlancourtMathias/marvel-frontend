@@ -1,5 +1,5 @@
 .itemCardContainer {
-  width: 400px;
+  width: 300px;
   display: flex;
   align-content: center;
   flex-direction: column;
@@ -15,11 +15,11 @@
 }
 
 .itemDescription {
-  width: 270px;
+  width: 80%;
   text-align: start;
   line-height: 1em;
   /* border: 2px solid black; */
-
+  font-size: small;
   font-family: "Gloria Hallelujah", cursive;
   /* font-family: "Margarine", cursive; */
   /* font-family: "Mynerve", cursive; */
@@ -27,6 +27,7 @@
 
 #itemImage {
   object-fit: cover;
+  width: 90%;
   border: solid 4px black;
   font-size: 1rem;
   border-top-left-radius: 255px 15px;
