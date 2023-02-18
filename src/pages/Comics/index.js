@@ -15,16 +15,16 @@ const Comics = ({ queryElement, setQueryElement }) => {
   const [messageError, setMessageError] = useState();
 
   console.log("API_URI:", API_URI);
-  setQueryElement("/comics?title=");
+
   useEffect(() => {
+    setQueryElement("/comics?title=");
     const fetchData = async () => {
       try {
         const response = await axios.get(`${API_URI}/comics`);
         setData(response.data);
         setIsLoading(false);
-        // console.log("response : ", response);
+
         console.log("response.data : ", response.data);
-        // console.log("DATA RESULTS:", data.results);
       } catch (error) {
         console.log(error.message);
         setMessageError("Error with loading");

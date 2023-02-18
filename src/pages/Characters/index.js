@@ -5,7 +5,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URI } from "../../constantVariables";
-import { Navigate, useNavigate, useLocation } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./characters.css";
 
 //compenents imports
@@ -18,19 +18,18 @@ const Characters = ({ queryElement, setQueryElement }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [messageError, setMessageError] = useState();
   const navigate = useNavigate();
-  const location = useLocation();
 
   console.log("API_URI:", API_URI);
-  setQueryElement("/characters?name=");
+
   useEffect(() => {
+    setQueryElement("/characters?name=");
     const fetchData = async () => {
       try {
         const response = await axios.get(`${API_URI}/characters`);
         setData(response.data);
         setIsLoading(false);
-        // console.log("response : ", response);
+
         console.log("response.data : ", response.data);
-        // console.log("DATA RESULTS:", data.results);
       } catch (error) {
         console.log(error.message);
         setMessageError("Error with loading");
@@ -54,6 +53,7 @@ const Characters = ({ queryElement, setQueryElement }) => {
           {data.results.map((item) => {
             return (
               <button
+                key={item._id}
                 className="characterCardButton"
                 onClick={() =>
                   navigate(`/character/${item._id}`, {
