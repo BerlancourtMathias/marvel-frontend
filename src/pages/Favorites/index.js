@@ -16,7 +16,7 @@ const Favorites = ({ favoriteCharacters, favoriteComics }) => {
         <h1>My favorites characters : </h1>
         {favoritesCharacterstab.length === 1 ? (
           <div className="noItemsInFavorites">
-            No comics saved in your favorites
+            No characters saved in your favorites
           </div>
         ) : (
           favoritesCharacterstab.map((elem) => {
