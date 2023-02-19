@@ -2,8 +2,6 @@
   display: flex;
   height: 100px;
   justify-content: center;
-  /* margin-left: 285px; */
-
   padding-top: 15px;
 }
 .searchBarContainer input {
