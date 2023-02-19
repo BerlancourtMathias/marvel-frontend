@@ -15,8 +15,6 @@ const Comics = ({ queryElement, setQueryElement, skip, setSkip }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [messageError, setMessageError] = useState();
 
-  console.log("API_URI:", API_URI);
-
   useEffect(() => {
     setQueryElement("/comics?title=");
     const fetchData = async () => {
@@ -24,8 +22,6 @@ const Comics = ({ queryElement, setQueryElement, skip, setSkip }) => {
         const response = await axios.get(`${API_URI}/comics?skip=${skip}`);
         setData(response.data);
         setIsLoading(false);
-
-        console.log("response.data : ", response.data);
       } catch (error) {
         console.log(error.message);
         setMessageError("Error with loading");

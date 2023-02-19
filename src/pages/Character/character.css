@@ -10,14 +10,6 @@
   margin-top: 50px;
   font-size: 40px;
 }
-.addFavoriteCharacterButton {
-  position: relative;
-}
-.hearthButton {
-  position: absolute;
-  bottom: 40%;
-  left: 50%;
-}
 .characterPictureAndDescriptionFlex {
   display: flex;
   align-items: center;
@@ -25,6 +17,15 @@
   width: 100%;
   height: 100%;
   justify-content: center;
+  position: relative;
+}
+.hearthButtonCharPic {
+  position: absolute;
+  left: 430px;
+  top: 175px;
+}
+.hearthButtonComicsPic {
+  left: 200px;
 }
 
 #charactrDescriptionInComicsPerCharacter {

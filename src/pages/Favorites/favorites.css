@@ -1,0 +1,19 @@
+.favoritesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.favoriteItemsList > h1 {
+  font-family: "Bebas Neue", cursive;
+}
+.noItemsInFavorites {
+  font-family: "Mynerve", cursive;
+  font-size: large;
+}
+.favoriteItemsStyle {
+  font-family: "Mynerve", cursive;
+  font-size: large;
+  font-weight: bold;
+}

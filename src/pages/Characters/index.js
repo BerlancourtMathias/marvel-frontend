@@ -21,8 +21,6 @@ const Characters = ({ queryElement, setQueryElement, skip, setSkip }) => {
 
   const navigate = useNavigate();
 
-  console.log("API_URI:", API_URI);
-
   useEffect(() => {
     setQueryElement(`/characters?&name=`);
     const fetchData = async () => {
@@ -30,8 +28,6 @@ const Characters = ({ queryElement, setQueryElement, skip, setSkip }) => {
         const response = await axios.get(`${API_URI}/characters?skip=${skip}`);
         setData(response.data);
         setIsLoading(false);
-
-        console.log("response.data : ", response.data);
       } catch (error) {
         console.log(error.message);
         setMessageError("Error with loading");

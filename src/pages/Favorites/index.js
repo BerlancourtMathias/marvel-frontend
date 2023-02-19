@@ -2,25 +2,40 @@
 import "./favorites.css";
 import Cookies from "js-cookie";
 
-const Favorites = ({
-  favoriteCharacters,
-  setFavoriteCharacters,
-  favoriteComics,
-  setFavoriteComics,
-}) => {
-  Cookies.set("favoriteCharacters", favoriteCharacters);
-  Cookies.set("favoriteComics", favoriteComics);
-  console.log("liste de comics favoris : ", Cookies.get("favoriteComics"));
-  console.log(
-    "liste de characters favoris : ",
-    Cookies.get("favoriteCharacters")
-  );
+const Favorites = ({ favoriteCharacters, favoriteComics }) => {
+  Cookies.set("favoriteCharacters", favoriteCharacters, { expires: 30 });
+  Cookies.set("favoriteComics", favoriteComics, { expires: 30 });
+
+  const favoritesCharacterstab = Cookies.get("favoriteCharacters").split(",");
+
+  const favoritesComicstab = Cookies.get("favoriteComics").split(",");
 
   return (
-    <div>
-      FAVORITES youhou
-      <div className="favoriteCharactersList"></div>
-      <div className="favoriteComicsList"></div>
+    <div className="favoritesContainer">
+      <div className="favoriteItemsList">
+        <h1>My favorites characters : </h1>
+        {favoritesCharacterstab.length === 1 ? (
+          <div className="noItemsInFavorites">
+            No comics saved in your favorites
+          </div>
+        ) : (
+          favoritesCharacterstab.map((elem) => {
+            return <div className="favoriteItemsStyle">{elem}</div>;
+          })
+        )}
+      </div>
+      <div className="favoriteItemsList">
+        <h1>My favorites Comics : </h1>
+        {favoritesComicstab.length === 1 ? (
+          <div className="noItemsInFavorites">
+            No comics saved in your favorites
+          </div>
+        ) : (
+          favoritesComicstab.map((elem) => {
+            return <div className="favoriteItemsStyle">{elem}</div>;
+          })
+        )}
+      </div>
     </div>
   );
 };
