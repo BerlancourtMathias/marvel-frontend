@@ -1,5 +1,5 @@
 //imports
-// import "./searchBar.css";
+import "./searchBar.css";
 import axios from "axios";
 import { API_URI } from "../../constantVariables";
 
