@@ -18,7 +18,6 @@ const Characters = ({ queryElement, setQueryElement, skip, setSkip }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [messageError, setMessageError] = useState();
-  // const [skip, setSkip] = useState(null);
 
   const navigate = useNavigate();
 
@@ -39,7 +38,7 @@ const Characters = ({ queryElement, setQueryElement, skip, setSkip }) => {
       }
     };
     fetchData();
-  }, [skip]);
+  }, [skip, setQueryElement]);
 
   if (isLoading) return <Spinner />;
   else if (messageError) {

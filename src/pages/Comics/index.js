@@ -32,7 +32,7 @@ const Comics = ({ queryElement, setQueryElement, skip, setSkip }) => {
       }
     };
     fetchData();
-  }, [skip]);
+  }, [skip, setQueryElement]);
 
   if (isLoading) return <Spinner />;
   else if (messageError) return <div>{messageError}</div>;
