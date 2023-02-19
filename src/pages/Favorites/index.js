@@ -14,7 +14,7 @@ const Favorites = ({ favoriteCharacters, favoriteComics }) => {
     <div className="favoritesContainer">
       <div className="favoriteItemsList">
         <h1>My favorites characters : </h1>
-        {favoritesCharacterstab.length === 1 ? (
+        {favoritesCharacterstab.length === 0 ? (
           <div className="noItemsInFavorites">
             No characters saved in your favorites
           </div>
@@ -26,7 +26,7 @@ const Favorites = ({ favoriteCharacters, favoriteComics }) => {
       </div>
       <div className="favoriteItemsList">
         <h1>My favorites Comics : </h1>
-        {favoritesComicstab.length === 1 ? (
+        {favoritesComicstab.length === 0 ? (
           <div className="noItemsInFavorites">
             No comics saved in your favorites
           </div>
