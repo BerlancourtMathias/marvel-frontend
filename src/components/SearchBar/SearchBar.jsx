@@ -1,26 +1,22 @@
 //imports
 import "./searchBar.css";
-import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URI } from "../../constantVariables";
 
-const SearchBar = ({ setData, queryElement, setQueryElement }) => {
-  const [search, setSearch] = useState("");
+const SearchBar = ({ setData, queryElement }) => {
+  const query = API_URI + queryElement;
+  console.log("querySearch", query);
 
-  const query = API_URI + queryElement + search;
-  console.log("query: ", query);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${query}`);
-        setData(response.data);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    fetchData();
-  }, [search]);
+  const handleSearchQuery = async (value) => {
+    try {
+      const response = await axios.get(`${query}${value}`);
+      console.log("evolution de la query search : ", `${query}${value}`);
+      setData(response.data);
+      console.log("resultat searchbar :", response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <div className="searchBarContainer">
@@ -29,7 +25,7 @@ const SearchBar = ({ setData, queryElement, setQueryElement }) => {
         type="textarea"
         placeholder="Search"
         onChange={(event) => {
-          setSearch(event.target.value);
+          handleSearchQuery(event.target.value);
         }}
       />
     </div>

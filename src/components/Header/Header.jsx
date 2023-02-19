@@ -8,6 +8,7 @@ const Header = () => {
   const [isCharPushed, setCharPushed] = useState(false);
   const [isComPushed, setComPushed] = useState(false);
   const [isFavPushed, setFavPushed] = useState(false);
+
   return (
     <div className="headerContainer">
       <img src={logo} alt="Marvel logo" />
@@ -18,9 +19,11 @@ const Header = () => {
             onClick={() => {
               setCharPushed(!isCharPushed);
               if (isComPushed) {
-                setComPushed(!isComPushed);
+                setComPushed(false);
               }
-              if (isFavPushed) setFavPushed(!isFavPushed);
+              if (isFavPushed) {
+                setFavPushed(false);
+              }
             }}
             className={
               isCharPushed ? "buttonPushed-char" : "buttonNotPushed-char"
@@ -33,11 +36,12 @@ const Header = () => {
           <button
             onClick={() => {
               setComPushed(!isComPushed);
+
               if (isCharPushed) {
-                setCharPushed(!isCharPushed);
+                setCharPushed(false);
               }
               if (isFavPushed) {
-                setFavPushed(!isFavPushed);
+                setFavPushed(false);
               }
             }}
             className={isComPushed ? "buttonPushed-com" : "buttonNotPushed-com"}
@@ -49,11 +53,12 @@ const Header = () => {
           <button
             onClick={() => {
               setFavPushed(!isFavPushed);
+              // setSkip(null);
               if (isCharPushed) {
-                setCharPushed(!isCharPushed);
+                setCharPushed(false);
               }
               if (isComPushed) {
-                setComPushed(!isComPushed);
+                setComPushed(false);
               }
             }}
             className={isFavPushed ? "buttonPushed-fav" : "buttonNotPushed-fav"}

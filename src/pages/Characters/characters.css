@@ -5,6 +5,8 @@
 .characterCardButton {
   border-style: none;
   background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
 }
 .characterCardButton:hover {
   cursor: pointer;

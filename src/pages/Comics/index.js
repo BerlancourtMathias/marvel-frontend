@@ -8,8 +8,9 @@ import "./comics.css";
 import ItemCard from "../../components/ItemCard/ItemCard";
 import Spinner from "../../components/Spinner";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import PaginationButtons from "../../components/PaginationButtons";
 
-const Comics = ({ queryElement, setQueryElement }) => {
+const Comics = ({ queryElement, setQueryElement, skip, setSkip }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [messageError, setMessageError] = useState();
@@ -20,7 +21,7 @@ const Comics = ({ queryElement, setQueryElement }) => {
     setQueryElement("/comics?title=");
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${API_URI}/comics`);
+        const response = await axios.get(`${API_URI}/comics?skip=${skip}`);
         setData(response.data);
         setIsLoading(false);
 
@@ -31,23 +32,21 @@ const Comics = ({ queryElement, setQueryElement }) => {
       }
     };
     fetchData();
-  }, []);
+  }, [skip]);
 
   if (isLoading) return <Spinner />;
   else if (messageError) return <div>{messageError}</div>;
   else
     return (
       <div className="comicsContainer">
-        <SearchBar
-          setData={setData}
-          queryElement={queryElement}
-          setQueryElement={setQueryElement}
-        />
+        <SearchBar setData={setData} queryElement={queryElement} />
+        <PaginationButtons setSkip={setSkip} skip={skip} data={data} />
         <div className="comicsCardContainer">
           {data.results.map((item) => {
             return <ItemCard item={item} key={item._id} />;
           })}
         </div>
+        <PaginationButtons setSkip={setSkip} skip={skip} data={data} />
       </div>
     );
 };

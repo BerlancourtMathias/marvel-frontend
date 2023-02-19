@@ -1,8 +1,9 @@
 .searchBarContainer {
   display: flex;
   height: 100px;
-  justify-content: flex-start;
-  margin-left: 510px;
+  justify-content: center;
+  /* margin-left: 285px; */
+
   padding-top: 15px;
 }
 .searchBarContainer input {

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Characters from "./pages/Characters/index";
 import Comics from "./pages/Comics/index";
 import Character from "./pages/Character/index";
+import Favorites from "./pages/Favorites";
 //----components----
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -12,10 +13,14 @@ import NotFound from "./components/NotFound";
 
 const App = () => {
   const [queryElement, setQueryElement] = useState("");
+  const [skip, setSkip] = useState(0);
+  const [favoriteCharacters, setFavoriteCharacters] = useState([]);
+  const [favoriteComics, setFavoriteComics] = useState([]);
+
   return (
     <div className="App">
       <Router>
-        <Header />
+        <Header setSkip={setSkip} skip={skip} />
         <div className="main">
           <Routes>
             <Route
@@ -24,6 +29,8 @@ const App = () => {
                 <Characters
                   queryElement={queryElement}
                   setQueryElement={setQueryElement}
+                  skip={skip}
+                  setSkip={setSkip}
                 />
               }
             />
@@ -33,11 +40,33 @@ const App = () => {
                 <Comics
                   queryElement={queryElement}
                   setQueryElement={setQueryElement}
+                  skip={skip}
+                  setSkip={setSkip}
                 />
               }
             />
-            <Route path="/character/:characterId" element={<Character />} />
-
+            <Route
+              path="/character/:characterId"
+              element={
+                <Character
+                  favoriteCharacters={favoriteCharacters}
+                  setFavoriteCharacters={setFavoriteCharacters}
+                  favoriteComics={favoriteComics}
+                  setFavoriteComics={setFavoriteComics}
+                />
+              }
+            />
+            <Route
+              path="/favorites"
+              element={
+                <Favorites
+                  favoriteCharacters={favoriteCharacters}
+                  setFavoriteCharacters={setFavoriteCharacters}
+                  favoriteComics={favoriteComics}
+                  setFavoriteComics={setFavoriteComics}
+                />
+              }
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

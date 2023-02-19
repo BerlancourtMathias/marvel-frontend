@@ -11,7 +11,12 @@ import { CHARACTER_PICTURE_SQUARE_DIMENSION } from "../../constantVariables";
 import ItemCard from "../../components/ItemCard/ItemCard";
 import Spinner from "../../components/Spinner";
 
-const Character = () => {
+const Character = ({
+  favoriteCharacters,
+  setFavoriteCharacters,
+  favoriteComics,
+  setFavoriteComics,
+}) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [messageError, setMessageError] = useState();
@@ -22,7 +27,7 @@ const Character = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${API_URI}/comics/${characterId}`);
-
+        console.log("response data page char :", response.data);
         setIsLoading(false);
         setData(response.data);
       } catch (error) {
@@ -50,11 +55,24 @@ const Character = () => {
             {data.name}
           </div>
           <div className="characterPictureAndDescriptionFlex">
-            <img
-              id="characterPic"
-              src={imageCharacterPageComPerChar}
-              alt="character square"
-            />
+            <button
+              onClick={() => {
+                const newTab = [...favoriteCharacters];
+                if (newTab.includes(data._id)) {
+                  newTab.splice(newTab.indexOf(data._id), 1);
+                } else {
+                  newTab.push(data._id);
+                }
+
+                setFavoriteCharacters(newTab);
+              }}
+            >
+              <img
+                id="characterPic"
+                src={imageCharacterPageComPerChar}
+                alt="character square"
+              />
+            </button>
             <div
               id="charactrDescriptionInComicsPerCharacter"
               className="itemDescription"
@@ -66,7 +84,21 @@ const Character = () => {
         <div id="appearsIn">appears in the following comics : </div>
         <div className="itemCardContainerCharacterPageFlex">
           {data.comics.map((item) => {
-            return <ItemCard item={item} key={item._id} />;
+            return (
+              <button
+                onClick={() => {
+                  const newTab = [...favoriteComics];
+                  if (newTab.includes(item._id)) {
+                    newTab.splice(newTab.indexOf(item._id), 1);
+                  } else {
+                    newTab.push(item._id);
+                  }
+                  setFavoriteComics(newTab);
+                }}
+              >
+                <ItemCard item={item} key={item._id} />
+              </button>
+            );
           })}
         </div>
       </div>

@@ -28,6 +28,7 @@
 #itemImage {
   object-fit: cover;
   width: 90%;
+  min-height: 413px;
   border: solid 4px black;
   font-size: 1rem;
   border-top-left-radius: 255px 15px;
