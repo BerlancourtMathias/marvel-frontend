@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Cookies from "js-cookie";
 //----Pages----
 import Characters from "./pages/Characters/index";
 import Comics from "./pages/Comics/index";
@@ -14,8 +15,12 @@ import NotFound from "./components/NotFound";
 const App = () => {
   const [queryElement, setQueryElement] = useState("");
   const [skip, setSkip] = useState(0);
-  const [favoriteCharacters, setFavoriteCharacters] = useState([]);
-  const [favoriteComics, setFavoriteComics] = useState([]);
+  const [favoriteCharacters, setFavoriteCharacters] = useState(
+    Cookies.get("favoriteCharacters").split(",") || []
+  );
+  const [favoriteComics, setFavoriteComics] = useState(
+    Cookies.get("favoriteComics").split(",") || []
+  );
 
   return (
     <div className="App">

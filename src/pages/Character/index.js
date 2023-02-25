@@ -113,15 +113,15 @@ const Character = ({
                   display: "block",
                   width: "fit-content",
                 }}
-                onClick={() => {
-                  const newTab = [...favoriteComics];
-                  if (newTab.includes(item._id)) {
-                    newTab.splice(newTab.indexOf(item._id), 1);
-                  } else {
-                    newTab.push(item.title);
-                  }
-                  setFavoriteComics(newTab);
-                }}
+                // onClick={() => {
+                //   const newTab = [...favoriteComics];
+                //   if (newTab.includes(item.title)) {
+                //     newTab.splice(newTab.indexOf(item.title), 1);
+                //   } else {
+                //     newTab.push(item.title);
+                //   }
+                //   setFavoriteComics(newTab);
+                // }}
               >
                 <FormControlLabel
                   control={
@@ -131,6 +131,19 @@ const Character = ({
                       name="checkedH"
                     />
                   }
+                  onChange={(event) => {
+                    const newTab = [...favoriteComics];
+                    if (event.target.checked && !newTab.includes(item.title)) {
+                      newTab.push(item.title);
+                      setFavoriteComics(newTab);
+                    } else if (
+                      event.target.checked &&
+                      newTab.includes(item.title)
+                    ) {
+                      newTab.splice(newTab.indexOf(item.title), 1);
+                      setFavoriteComics(newTab);
+                    }
+                  }}
                 />
 
                 <ItemCard item={item} key={item._id} />
