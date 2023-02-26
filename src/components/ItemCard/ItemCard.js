@@ -25,10 +25,11 @@ const ItemCard = ({ item }) => {
   return (
     <div className="itemCardContainer" key={item._id}>
       <div className="itemTitle">{item.title || item.name}</div>
+      <div className="relativeItemContainer">
+        <img id="itemImage" src={handleImage()} alt="item illustration" />
 
-      <img id="itemImage" src={handleImage()} alt="item illustration" />
-
-      <div className="itemDescription">{item.description}</div>
+        <div className="itemDescription">{item.description}</div>
+      </div>
     </div>
   );
 };

@@ -19,8 +19,12 @@ const Favorites = ({ favoriteCharacters, favoriteComics }) => {
             No characters saved in your favorites
           </div>
         ) : (
-          favoritesCharacterstab.map((elem) => {
-            return <div className="favoriteItemsStyle">{elem}</div>;
+          favoritesCharacterstab.map((elem, index) => {
+            return (
+              <div key={index} className="favoriteItemsStyle">
+                {elem}
+              </div>
+            );
           })
         )}
       </div>
@@ -31,8 +35,12 @@ const Favorites = ({ favoriteCharacters, favoriteComics }) => {
             No comics saved in your favorites
           </div>
         ) : (
-          favoritesComicstab.map((elem) => {
-            return <div className="favoriteItemsStyle">{elem}</div>;
+          favoritesComicstab.map((elem, index) => {
+            return (
+              <div key={index} className="favoriteItemsStyle">
+                {elem}
+              </div>
+            );
           })
         )}
       </div>

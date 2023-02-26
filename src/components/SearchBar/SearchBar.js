@@ -4,6 +4,7 @@ import axios from "axios";
 import { API_URI } from "../../constantVariables";
 
 const SearchBar = ({ setData, queryElement }) => {
+  // const [input, setInput] = useState(""); TODO
   const query = API_URI + queryElement;
 
   const handleSearchQuery = async (value) => {

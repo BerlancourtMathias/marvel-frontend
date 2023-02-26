@@ -75,7 +75,7 @@ const Character = ({
               onClick={() => {
                 const newTab = [...favoriteCharacters];
                 if (newTab.includes(data.name)) {
-                  newTab.splice(newTab.indexOf(data.name), 2);
+                  newTab.splice(newTab.indexOf(data.name), 1);
                 } else {
                   newTab.push(data.name);
                 }
@@ -89,6 +89,7 @@ const Character = ({
                     icon={<FavoriteBorder />}
                     checkedIcon={<Favorite />}
                     name="checkedH"
+                    checked={favoriteCharacters.includes(data.name) && true}
                   />
                 }
               />
@@ -129,18 +130,17 @@ const Character = ({
                       icon={<FavoriteBorder />}
                       checkedIcon={<Favorite />}
                       name="checkedH"
+                      checked={favoriteComics.includes(item.title) && true}
                     />
                   }
-                  onChange={(event) => {
+                  onClick={() => {
                     const newTab = [...favoriteComics];
-                    if (event.target.checked && !newTab.includes(item.title)) {
-                      newTab.push(item.title);
-                      setFavoriteComics(newTab);
-                    } else if (
-                      event.target.checked &&
-                      newTab.includes(item.title)
-                    ) {
+                    if (newTab.includes(item.title)) {
                       newTab.splice(newTab.indexOf(item.title), 1);
+
+                      setFavoriteComics(newTab);
+                    } else {
+                      newTab.push(item.title);
                       setFavoriteComics(newTab);
                     }
                   }}

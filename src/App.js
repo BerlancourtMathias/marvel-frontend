@@ -16,10 +16,10 @@ const App = () => {
   const [queryElement, setQueryElement] = useState("");
   const [skip, setSkip] = useState(0);
   const [favoriteCharacters, setFavoriteCharacters] = useState(
-    Cookies.get("favoriteCharacters").split(",") || []
+    [] || Cookies.get("favoriteCharacters").split(",")
   );
   const [favoriteComics, setFavoriteComics] = useState(
-    Cookies.get("favoriteComics").split(",") || []
+    [] || Cookies.get("favoriteComics").split(",")
   );
 
   return (
