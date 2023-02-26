@@ -14,11 +14,14 @@ import NotFound from "./components/NotFound";
 
 const App = () => {
   const [skip, setSkip] = useState(0);
+
   const [favoriteCharacters, setFavoriteCharacters] = useState(
-    [] || Cookies.get("favoriteCharacters").split(",")
+    // [] ||
+    Cookies.get("favoriteCharacters").split(",")
   );
   const [favoriteComics, setFavoriteComics] = useState(
-    [] || Cookies.get("favoriteComics").split(",")
+    // [] ||
+    Cookies.get("favoriteComics").split(",")
   );
   // const [theme, setThemes] = useState("light"); TODO dark mode
 
