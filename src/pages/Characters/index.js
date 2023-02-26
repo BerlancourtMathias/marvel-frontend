@@ -14,18 +14,20 @@ import Spinner from "../../components/Spinner";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import PaginationButtons from "../../components/PaginationButtons";
 
-const Characters = ({ queryElement, setQueryElement, skip, setSkip }) => {
+const Characters = ({ skip, setSkip }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [messageError, setMessageError] = useState();
+  const [input, setInput] = useState("");
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    setQueryElement(`/characters?&name=`);
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${API_URI}/characters?skip=${skip}`);
+        const response = await axios.get(
+          `${API_URI}/characters?name=${input}&skip=${skip}`
+        );
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -34,7 +36,7 @@ const Characters = ({ queryElement, setQueryElement, skip, setSkip }) => {
       }
     };
     fetchData();
-  }, [skip, setQueryElement]);
+  }, [skip, input]);
 
   if (isLoading) return <Spinner />;
   else if (messageError) {
@@ -42,7 +44,7 @@ const Characters = ({ queryElement, setQueryElement, skip, setSkip }) => {
   } else
     return (
       <div className="charactersContainer">
-        <SearchBar setData={setData} queryElement={queryElement} />
+        <SearchBar setInput={setInput} />
         <PaginationButtons setSkip={setSkip} skip={skip} data={data} />
         <div className="characterCardContainer">
           {data.results.map((item) => {
@@ -50,11 +52,7 @@ const Characters = ({ queryElement, setQueryElement, skip, setSkip }) => {
               <button
                 key={item._id}
                 className="characterCardButton"
-                onClick={() =>
-                  navigate(`/character/${item._id}`, {
-                    state: { id: item._id },
-                  })
-                }
+                onClick={() => navigate(`/character/${item._id}`)}
               >
                 <ItemCard item={item} key={item._id} />
               </button>

@@ -1,20 +1,9 @@
 //imports
 import "./searchBar.css";
-import axios from "axios";
-import { API_URI } from "../../constantVariables";
 
-const SearchBar = ({ setData, queryElement }) => {
-  // const [input, setInput] = useState(""); TODO
-  const query = API_URI + queryElement;
-
-  const handleSearchQuery = async (value) => {
-    try {
-      const response = await axios.get(`${query}${value}`);
-
-      setData(response.data);
-    } catch (error) {
-      console.log(error.message);
-    }
+const SearchBar = ({ setInput }) => {
+  const handleSearchQuery = (value) => {
+    setInput(value);
   };
 
   return (

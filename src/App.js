@@ -13,7 +13,6 @@ import Footer from "./components/Footer/Footer";
 import NotFound from "./components/NotFound";
 
 const App = () => {
-  const [queryElement, setQueryElement] = useState("");
   const [skip, setSkip] = useState(0);
   const [favoriteCharacters, setFavoriteCharacters] = useState(
     [] || Cookies.get("favoriteCharacters").split(",")
@@ -21,6 +20,7 @@ const App = () => {
   const [favoriteComics, setFavoriteComics] = useState(
     [] || Cookies.get("favoriteComics").split(",")
   );
+  // const [theme, setThemes] = useState("light"); TODO dark mode
 
   return (
     <div className="App">
@@ -30,25 +30,11 @@ const App = () => {
           <Routes>
             <Route
               path="/"
-              element={
-                <Characters
-                  queryElement={queryElement}
-                  setQueryElement={setQueryElement}
-                  skip={skip}
-                  setSkip={setSkip}
-                />
-              }
+              element={<Characters skip={skip} setSkip={setSkip} />}
             />
             <Route
               path="/comics"
-              element={
-                <Comics
-                  queryElement={queryElement}
-                  setQueryElement={setQueryElement}
-                  skip={skip}
-                  setSkip={setSkip}
-                />
-              }
+              element={<Comics skip={skip} setSkip={setSkip} />}
             />
             <Route
               path="/character/:characterId"

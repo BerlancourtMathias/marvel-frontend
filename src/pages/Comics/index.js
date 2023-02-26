@@ -10,16 +10,18 @@ import Spinner from "../../components/Spinner";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import PaginationButtons from "../../components/PaginationButtons";
 
-const Comics = ({ queryElement, setQueryElement, skip, setSkip }) => {
+const Comics = ({ skip, setSkip }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [messageError, setMessageError] = useState();
+  const [input, setInput] = useState("");
 
   useEffect(() => {
-    setQueryElement("/comics?title=");
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${API_URI}/comics?skip=${skip}`);
+        const response = await axios.get(
+          `${API_URI}/comics?title=${input}&skip=${skip}`
+        );
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -28,14 +30,14 @@ const Comics = ({ queryElement, setQueryElement, skip, setSkip }) => {
       }
     };
     fetchData();
-  }, [skip, setQueryElement]);
+  }, [skip, input]);
 
   if (isLoading) return <Spinner />;
   else if (messageError) return <div>{messageError}</div>;
   else
     return (
       <div className="comicsContainer">
-        <SearchBar setData={setData} queryElement={queryElement} />
+        <SearchBar setInput={setInput} />
         <PaginationButtons setSkip={setSkip} skip={skip} data={data} />
         <div className="comicsCardContainer">
           {data.results.map((item) => {
