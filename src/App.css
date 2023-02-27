@@ -10,3 +10,12 @@
 .main {
   background-color: whitesmoke;
 }
+@media (max-width: 576px) {
+  .App {
+    height: 100vh;
+    width: 400px;
+    text-align: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+}

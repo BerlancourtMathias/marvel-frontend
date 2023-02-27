@@ -23,6 +23,9 @@
   position: absolute;
   left: 810px;
   top: 180px;
+  margin: auto;
+  display: block;
+  width: fit-content;
 }
 
 #charactrDescriptionInComicsPerCharacter {
@@ -45,4 +48,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+@media (max-width: 576px) {
+  .characterContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .hearthButtonCharPic {
+    display: contents;
+  }
 }

@@ -67,11 +67,6 @@ const Character = ({
             />
             <div
               className="hearthButtonCharPic"
-              style={{
-                margin: "auto",
-                display: "block",
-                width: "fit-content",
-              }}
               onClick={() => {
                 const newTab = [...favoriteCharacters];
                 if (newTab.includes(data.name)) {
