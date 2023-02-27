@@ -57,3 +57,22 @@
   border-bottom-right-radius: 225px 15px;
   border-bottom-left-radius: 15px 255px;
 }
+@media (max-width: 576px) {
+  .itemTitle {
+    font-size: large;
+    font-family: "Bebas Neue", cursive;
+    font-size: 40px;
+  }
+
+  #itemImage {
+    object-fit: cover;
+    width: 100%;
+    min-height: 100%;
+    border: solid 4px black;
+    font-size: 1rem;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    border-bottom-right-radius: 225px 15px;
+    border-bottom-left-radius: 15px 255px;
+  }
+}

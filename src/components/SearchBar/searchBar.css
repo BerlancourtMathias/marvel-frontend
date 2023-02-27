@@ -17,3 +17,18 @@
   border-bottom-left-radius: 15px 255px;
   border: lightgray solid 2px;
 }
+@media (max-width: 576px) {
+  .searchBarContainer input {
+    height: 30px;
+    width: 200px;
+    font-family: "Mynerve", cursive;
+    font-size: 20px;
+    font-weight: 700;
+    border-style: none;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    border-bottom-right-radius: 225px 15px;
+    border-bottom-left-radius: 15px 255px;
+    border: lightgray solid 2px;
+  }
+}
